@@ -1,7 +1,7 @@
 {
-  "name": "create-typescript-lib",
+  "name": "fastify-redis-session",
   "version": "1.0.0",
-  "description": "Typescript library quickstart project",
+  "description": "Redis store for fastify-session using ioredis",
   "main": "lib/index.js",
   "scripts": {
     "start": "nodemon --watch 'src/' --ext 'ts,json' --exec 'npm run node'",
