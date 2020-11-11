@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Redis store for fastify-session using ioredis",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "Olivier Louvignes <olivier@mgcrea.io>",
+  "repository": "github:mgcrea/fastify-redis-session",
+  "license": "MIT",
   "scripts": {
     "start": "nodemon --watch 'src/' --ext 'ts,json' --exec 'npm run node'",
     "node": "NODE_PATH=. ts-node src/index",
@@ -12,8 +16,6 @@
     "prettycheck": "prettier --check 'src/'",
     "lint": "eslint src/"
   },
-  "author": "Olivier Louvignes <olivier@mgcrea.io>",
-  "license": "MIT",
   "devDependencies": {
     "@tsconfig/node14": "^1.0.0",
     "@types/ioredis": "^4.17.7",
