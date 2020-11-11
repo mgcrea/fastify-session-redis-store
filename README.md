@@ -1,3 +1,10 @@
-# Create TypeScript Library
+# Fastify Redis Session
 
-Use this project to quickly bootstrap a TypeScript library project.
+[![npm version](https://img.shields.io/npm/v/fastify-redis-session.svg)](https://github.com/mgcrea/fastify-redis-session/releases)
+[![license](https://img.shields.io/github/license/mgcrea/fastify-redis-session.svg?style=flat)](https://tldrlegal.com/license/mit-license)
+[![build status](https://travis-ci.com/mgcrea/fastify-redis-session.svg?branch=master)](https://travis-ci.com/mgcrea/fastify-redis-session)
+[![dependencies status](https://david-dm.org/mgcrea/fastify-redis-session/status.svg)](https://david-dm.org/mgcrea/fastify-redis-session)
+[![devDependencies status](https://david-dm.org/mgcrea/fastify-redis-session/dev-status.svg)](https://david-dm.org/mgcrea/fastify-redis-session?type=dev)
+
+Redis store for [fastify-session](https://github.com/SerayaEryn/fastify-session) using
+[ioredis](https://github.com/luin/ioredis).

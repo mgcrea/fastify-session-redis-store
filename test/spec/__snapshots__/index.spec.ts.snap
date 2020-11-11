@@ -2,6 +2,6 @@
 
 exports[`module should export a stable API 1`] = `
 Object {
-  "foo": "bar",
+  "RedisStore": [Function],
 }
 `;
