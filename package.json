@@ -1,0 +1,31 @@
+{
+  "name": "create-typescript-lib",
+  "version": "1.0.0",
+  "description": "Typescript library quickstart project",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "nodemon --watch 'src/' --ext 'ts,json' --exec 'npm run node'",
+    "node": "NODE_PATH=. ts-node src/index",
+    "build": "tsc --build",
+    "test": "jest",
+    "typecheck": "tsc --noEmit",
+    "prettycheck": "prettier --check 'src/'",
+    "lint": "eslint src/"
+  },
+  "author": "Olivier Louvignes <olivier@mgcrea.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.7.0",
+    "@typescript-eslint/parser": "^4.7.0",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.6.3",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {}
+}
