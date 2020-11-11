@@ -36,7 +36,7 @@ export class RedisStore<T = Record<string, unknown>> extends EventEmitter implem
     this.redis
       .get(this.getKey(sessionId))
       .then((value) => {
-        callback(undefined, JSON.parse(value ?? '{}'));
+        callback(undefined, value ? JSON.parse(value) : null);
       })
       .catch((error) => callback(error, null));
   }
