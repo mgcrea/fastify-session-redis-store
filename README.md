@@ -43,7 +43,7 @@ export const buildFastify = (options?: FastifyServerOptions): FastifyInstance =>
 
 ## Authors
 
-- [**Olivier Louvignes**](https://github.com/mgcrea) <olivier@mgcrea.io>
+- [Olivier Louvignes](https://github.com/mgcrea) <<olivier@mgcrea.io>>
 
 ### Credits
 
