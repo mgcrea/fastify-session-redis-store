@@ -1,15 +1,25 @@
-# Fastify Redis Session
+# fastify-session-redis-store
 
-[![npm version](https://img.shields.io/npm/v/fastify-redis-session.svg)](https://github.com/mgcrea/fastify-redis-session/releases)
-[![license](https://img.shields.io/npm/l/fastify-redis-session)](https://tldrlegal.com/license/mit-license)
-[![build status](https://img.shields.io/github/workflow/status/mgcrea/fastify-redis-session/ci)](https://github.com/mgcrea/fastify-redis-session/actions)
-[![dependencies status](https://img.shields.io/david/mgcrea/fastify-redis-session)](https://david-dm.org/mgcrea/fastify-redis-session)
-[![devDependencies status](https://img.shields.io/david/dev/mgcrea/fastify-redis-session)](https://david-dm.org/mgcrea/fastify-redis-session?type=dev)
+[![npm version](https://img.shields.io/npm/v/@mgcrea/fastify-session-redis-store.svg)](https://github.com/mgcrea/fastify-session-redis-store/releases)
+[![license](https://img.shields.io/npm/l/@mgcrea/fastify-session-redis-store)](https://tldrlegal.com/license/mit-license)
+[![build status](https://img.shields.io/github/workflow/status/mgcrea/fastify-session-redis-store/ci)](https://github.com/mgcrea/fastify-session-redis-store/actions)
+[![dependencies status](https://img.shields.io/david/mgcrea/fastify-session-redis-store)](https://david-dm.org/mgcrea/fastify-session-redis-store)
+[![devDependencies status](https://img.shields.io/david/dev/mgcrea/fastify-session-redis-store)](https://david-dm.org/mgcrea/fastify-session-redis-store?type=dev)
 
-Redis store for [@mgcrea/fastify-session](https://github.com/mgcrea/fastify-session) using
-[ioredis](https://github.com/luin/ioredis).
+Redis session store for [fastify](https://github.com/fastify/fastify).
+
+- Requires [@mgcrea/fastify-session](https://github.com/mgcrea/fastify-session) to handle sessions.
+
+- Relies on [ioredis](https://github.com/luin/ioredis) to interact with redis.
+
+- Built with [TypeScript](https://www.typescriptlang.org/) for static type checking with exported types along the
+  library.
 
 ## Usage
+
+```bash
+npm install @mgcrea/fastify-session-redis-store
+```
 
 ```bash
 npm install ioredis --save; npm install @types/ioredis --save-dev
@@ -20,12 +30,12 @@ yarn add ioredis; yarn add --dev @types/ioredis
 ```ts
 import createFastify, { FastifyInstance, FastifyServerOptions } from 'fastify';
 import fastifyCookie from 'fastify-cookie';
+import RedisStore from '@mgcrea/fastify-session-redis-store';
 import fastifySession from '@mgcrea/fastify-session';
 import Redis from 'ioredis';
 import { IS_PROD, IS_TEST, REDIS_URI, SESSION_TTL } from './config/env';
-import { RedisStore } from 'fastify-redis-session';
 
-const SESSION_TTL = 864e3; // 1 day
+const SESSION_TTL = 864e3; // 1 day in seconds
 
 export const buildFastify = (options?: FastifyServerOptions): FastifyInstance => {
   const fastify = createFastify(options);

@@ -1,6 +1,6 @@
 {
-  "name": "fastify-redis-session",
-  "version": "2.0.0",
+  "name": "@mgcrea/fastify-session-redis-store",
+  "version": "0.9.0",
   "description": "Redis store for fastify-session using ioredis",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
