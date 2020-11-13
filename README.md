@@ -6,7 +6,7 @@
 [![dependencies status](https://img.shields.io/david/mgcrea/fastify-redis-session)](https://david-dm.org/mgcrea/fastify-redis-session)
 [![devDependencies status](https://img.shields.io/david/dev/mgcrea/fastify-redis-session)](https://david-dm.org/mgcrea/fastify-redis-session?type=dev)
 
-Redis store for [fastify-session](https://github.com/SerayaEryn/fastify-session) using
+Redis store for [@mgcrea/fastify-session](https://github.com/mgcrea/fastify-session) using
 [ioredis](https://github.com/luin/ioredis).
 
 ## Usage
@@ -20,7 +20,7 @@ yarn add ioredis; yarn add --dev @types/ioredis
 ```ts
 import createFastify, { FastifyInstance, FastifyServerOptions } from 'fastify';
 import fastifyCookie from 'fastify-cookie';
-import fastifySession from 'fastify-session';
+import fastifySession from '@mgcrea/fastify-session';
 import Redis from 'ioredis';
 import { IS_PROD, IS_TEST, REDIS_URI, SESSION_TTL } from './config/env';
 import { RedisStore } from 'fastify-redis-session';
