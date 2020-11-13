@@ -1,12 +1,13 @@
 {
   "name": "@mgcrea/fastify-session-redis-store",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Redis store for fastify-session using ioredis",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "author": "Olivier Louvignes <olivier@mgcrea.io>",
   "repository": "github:mgcrea/fastify-redis-session",
   "license": "MIT",
+  "access": "public",
   "scripts": {
     "build": "rm -rf lib/*; tsc --build",
     "test": "jest",
@@ -16,7 +17,7 @@
     "prepare": "npm run build"
   },
   "devDependencies": {
-    "@mgcrea/fastify-session": "^0.9.5",
+    "@mgcrea/fastify-session": "^0.9.7",
     "@tsconfig/node10": "^1.0.7",
     "@types/ioredis": "^4.17.7",
     "@typescript-eslint/eslint-plugin": "^4.7.0",
