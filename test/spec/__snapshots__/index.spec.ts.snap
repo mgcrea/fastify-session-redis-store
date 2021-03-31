@@ -2,6 +2,8 @@
 
 exports[`module should export a stable API 1`] = `
 Object {
+  "DEFAULT_PREFIX": "sess:",
+  "DEFAULT_TTL": 86400,
   "RedisStore": [Function],
   "default": [Function],
 }
