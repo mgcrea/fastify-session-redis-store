@@ -1,6 +1,6 @@
 {
   "name": "@mgcrea/fastify-session-redis-store",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "description": "Redis store for fastify-session using ioredis",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -17,7 +17,7 @@
     "prepare": "npm run build"
   },
   "devDependencies": {
-    "@mgcrea/fastify-session": "^0.13.0",
+    "@mgcrea/fastify-session": "^0.14.0",
     "@tsconfig/node10": "^1.0.7",
     "@types/ioredis": "^4.22.2",
     "@types/jest": "^26.0.22",
