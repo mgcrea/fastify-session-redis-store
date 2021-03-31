@@ -1,6 +1,6 @@
 # FastifySession RedisStore
 
-[![npm version](https://img.shields.io/npm/v/@mgcrea/fastify-session-redis-store.svg)](https://github.com/mgcrea/fastify-session-redis-store/releases)
+[![npm version](https://img.shields.io/npm/v/@mgcrea/fastify-session-redis-store)](https://github.com/mgcrea/fastify-session-redis-store/releases)
 [![license](https://img.shields.io/npm/l/@mgcrea/fastify-session-redis-store)](https://tldrlegal.com/license/mit-license)
 [![build status](https://img.shields.io/github/workflow/status/mgcrea/fastify-session-redis-store/ci)](https://github.com/mgcrea/fastify-session-redis-store/actions)
 [![dependencies status](https://img.shields.io/david/mgcrea/fastify-session-redis-store)](https://david-dm.org/mgcrea/fastify-session-redis-store)
