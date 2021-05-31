@@ -1,6 +1,6 @@
-import { SessionData, SessionStore } from '@mgcrea/fastify-session';
-import { EventEmitter } from 'events';
-import { Redis } from 'ioredis';
+import type { SessionData, SessionStore } from '@mgcrea/fastify-session';
+import type { EventEmitter } from 'events';
+import type { Redis } from 'ioredis';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type StoredData = { data: string; expiry: number | null }; // [session data, expiry time in ms]
