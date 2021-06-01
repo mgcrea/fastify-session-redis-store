@@ -1,5 +1,6 @@
+
+import { EventEmitter } from 'events';
 import type { SessionData, SessionStore } from '@mgcrea/fastify-session';
-import type { EventEmitter } from 'events';
 import type { Redis } from 'ioredis';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
