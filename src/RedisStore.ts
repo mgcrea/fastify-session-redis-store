@@ -7,12 +7,12 @@ type StoredData = { data: string; expiry: number | null }; // [session data, exp
 export type RedisStoreOptions = { client: Redis; prefix?: string; ttl?: number };
 
 export const DEFAULT_PREFIX = 'sess:';
-export const DEFAULT_TTL = 86400;
+export const DEFAULT_TTL = 86400; // one day in seconds
 
 export class RedisStore<T extends SessionData = SessionData> extends EventEmitter implements SessionStore {
   private redis: Redis;
   private readonly prefix: string;
-  private readonly ttl: number;
+  private readonly ttl: number; // seconds til expiration
 
   constructor({ client, prefix = DEFAULT_PREFIX, ttl = DEFAULT_TTL }: RedisStoreOptions) {
     super();
@@ -25,9 +25,13 @@ export class RedisStore<T extends SessionData = SessionData> extends EventEmitte
     return `${this.prefix}${sessionId}`;
   }
 
+  private getTTL(expiry?: number | null): number {
+    return expiry ? Math.min(Math.floor((expiry - Date.now()) / 1000), this.ttl) : this.ttl;
+  }
+
   // This required method is used to upsert a session into the store given a session ID (sid) and session (session) object.
   async set(sessionId: string, sessionData: T, expiry?: number | null): Promise<void> {
-    const ttl = expiry ? Math.min(expiry - Date.now(), this.ttl) : this.ttl;
+    const ttl = this.getTTL(expiry);
     const key = this.getKey(sessionId);
     await this.redis
       .pipeline()
@@ -39,7 +43,7 @@ export class RedisStore<T extends SessionData = SessionData> extends EventEmitte
 
   // This required method is used to get a session from the store given a session ID (sid).
   async get(sessionId: string): Promise<[SessionData, number | null] | null> {
-    const value = ((await this.redis.hgetall(this.getKey(sessionId))) as unknown) as StoredData | Record<string, never>;
+    const value = (await this.redis.hgetall(this.getKey(sessionId))) as unknown as StoredData | Record<string, never>;
     const isEmpty = Object.keys(value).length === 0;
     return !isEmpty ? [JSON.parse(value.data), value.expiry ? Number(value.expiry) : null] : null;
   }
@@ -52,7 +56,7 @@ export class RedisStore<T extends SessionData = SessionData> extends EventEmitte
 
   // This method is used to touch a session from the store given a session ID (sid).
   async touch(sessionId: string, expiry?: number | null): Promise<void> {
-    const ttl = expiry ? Math.min(expiry - Date.now(), this.ttl) : this.ttl;
+    const ttl = this.getTTL(expiry);
     const key = this.getKey(sessionId);
     await this.redis
       .pipeline()
