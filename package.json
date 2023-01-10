@@ -34,7 +34,6 @@
   "devDependencies": {
     "@mgcrea/fastify-session": "^0.16.0",
     "@tsconfig/node-lts-strictest-esm": "^18.12.1",
-    "@types/ioredis": "^4.28.10",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",

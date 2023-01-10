@@ -3,7 +3,6 @@ lockfileVersion: 5.4
 specifiers:
   '@mgcrea/fastify-session': ^0.16.0
   '@tsconfig/node-lts-strictest-esm': ^18.12.1
-  '@types/ioredis': ^4.28.10
   '@types/node': ^18.11.18
   '@typescript-eslint/eslint-plugin': ^5.48.1
   '@typescript-eslint/parser': ^5.48.1
@@ -22,7 +21,6 @@ specifiers:
 devDependencies:
   '@mgcrea/fastify-session': 0.16.0
   '@tsconfig/node-lts-strictest-esm': 18.12.1
-  '@types/ioredis': 4.28.10
   '@types/node': 18.11.18
   '@typescript-eslint/eslint-plugin': 5.48.1_3jon24igvnqaqexgwtxk6nkpse
   '@typescript-eslint/parser': 5.48.1_iukboom6ndih5an6iafl45j2fe
@@ -378,12 +376,6 @@ packages:
 
   /@types/chai/4.3.4:
     resolution: {integrity: sha512-KnRanxnpfpjUTqTCXslZSEdLfXExwgNxYPdiO2WGUj8+HDjFi8R3k5RVKPeSCzLjCcshCAtVO2QBbVuAV4kTnw==}
-    dev: true
-
-  /@types/ioredis/4.28.10:
-    resolution: {integrity: sha512-69LyhUgrXdgcNDv7ogs1qXZomnfOEnSmrmMFqKgt1XMJxmoOSG/u3wYy13yACIfKuMJ8IhKgHafDO3sx19zVQQ==}
-    dependencies:
-      '@types/node': 18.11.18
     dev: true
 
   /@types/json-schema/7.0.11:
