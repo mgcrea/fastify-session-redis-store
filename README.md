@@ -1,9 +1,30 @@
 # FastifySession RedisStore
 
-[![npm version](https://img.shields.io/npm/v/@mgcrea/fastify-session-redis-store)](https://github.com/mgcrea/fastify-session-redis-store/releases)
-[![license](https://img.shields.io/npm/l/@mgcrea/fastify-session-redis-store)](https://tldrlegal.com/license/mit-license)
-[![build status](https://img.shields.io/github/workflow/status/mgcrea/fastify-session-redis-store/ci)](https://github.com/mgcrea/fastify-session-redis-store/actions)
-[![dependencies status](https://img.shields.io/librariesio/release/npm/@mgcrea/fastify-session-redis-store)](https://libraries.io/npm/@mgcrea%2Ffastify-session-redis-store)
+<!-- markdownlint-disable MD033 -->
+<p align="center">
+  <a href="https://www.npmjs.com/package/@mgcrea/fastify-session-redis-store">
+    <img src="https://img.shields.io/npm/v/@mgcrea/fastify-session-redis-store.svg?style=for-the-badge" alt="npm version" />
+  </a>
+  <a href="https://www.npmjs.com/package/@mgcrea/fastify-session-redis-store">
+    <img src="https://img.shields.io/npm/dt/@mgcrea/fastify-session-redis-store.svg?style=for-the-badge" alt="npm total downloads" />
+  </a>
+  <a href="https://www.npmjs.com/package/@mgcrea/fastify-session-redis-store">
+    <img src="https://img.shields.io/npm/dm/@mgcrea/fastify-session-redis-store.svg?style=for-the-badge" alt="npm monthly downloads" />
+  </a>
+  <a href="https://www.npmjs.com/package/@mgcrea/fastify-session-redis-store">
+    <img src="https://img.shields.io/npm/l/@mgcrea/fastify-session-redis-store.svg?style=for-the-badge" alt="npm license" />
+  </a>
+  <br />
+  <a href="https://github.com/mgcrea/fastify-session-redis-store/actions/workflows/main.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/mgcrea/fastify-session-redis-store/main.yml?style=for-the-badge&branch=master" alt="build status" />
+  </a>
+  <a href="https://depfu.com/github/mgcrea/fastify-session-redis-store">
+    <img src="https://img.shields.io/depfu/dependencies/github/mgcrea/fastify-session-redis-store?style=for-the-badge" alt="dependencies status" />
+  </a>
+</p>
+<!-- markdownlint-enable MD037 -->
+
+## Features
 
 Redis session store for [fastify](https://github.com/fastify/fastify).
 
@@ -16,23 +37,25 @@ Redis session store for [fastify](https://github.com/fastify/fastify).
 
 ## Usage
 
-```bash
-npm install @mgcrea/fastify-session-redis-store
+```sh
+npm install @mgcrea/fastify-session @mgcrea/fastify-session-redis-store
+# or
+pnpm add @mgcrea/fastify-session @mgcrea/fastify-session-redis-store
 ```
 
-```bash
+```sh
 npm install ioredis --save; npm install @types/ioredis --save-dev
 # or
-yarn add ioredis; yarn add --dev @types/ioredis
+pnpm add ioredis; pnpm add --save-dev @types/ioredis
 ```
 
 ```ts
-import createFastify, { FastifyInstance, FastifyServerOptions } from 'fastify';
-import fastifyCookie from 'fastify-cookie';
-import RedisStore from '@mgcrea/fastify-session-redis-store';
-import fastifySession from '@mgcrea/fastify-session';
-import Redis from 'ioredis';
-import { IS_PROD, IS_TEST, REDIS_URI, SESSION_TTL } from './config/env';
+import createFastify, { FastifyInstance, FastifyServerOptions } from "fastify";
+import fastifyCookie from "fastify-cookie";
+import RedisStore from "@mgcrea/fastify-session-redis-store";
+import fastifySession from "@mgcrea/fastify-session";
+import Redis from "ioredis";
+import { IS_PROD, IS_TEST, REDIS_URI, SESSION_TTL } from "./config/env";
 
 const SESSION_TTL = 864e3; // 1 day in seconds
 
@@ -42,7 +65,7 @@ export const buildFastify = (options?: FastifyServerOptions): FastifyInstance =>
   fastify.register(fastifyCookie);
   fastify.register(fastifySession, {
     store: new RedisStore({ client: new Redis(REDIS_URI), ttl: SESSION_TTL }),
-    secret: 'a secret with minimum length of 32 characters',
+    secret: "a secret with minimum length of 32 characters",
     cookie: { maxAge: SESSION_TTL },
   });
 
