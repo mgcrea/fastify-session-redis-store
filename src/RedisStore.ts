@@ -1,12 +1,12 @@
-import { SessionData, SessionStore } from '@mgcrea/fastify-session';
-import { EventEmitter } from 'events';
-import { Redis } from 'ioredis';
+import type { SessionData, SessionStore } from "@mgcrea/fastify-session";
+import { EventEmitter } from "events";
+import type { Redis } from "ioredis";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type StoredData = { data: string; expiry: number | null }; // [session data, expiry time in ms]
 export type RedisStoreOptions = { client: Redis; prefix?: string; ttl?: number };
 
-export const DEFAULT_PREFIX = 'sess:';
+export const DEFAULT_PREFIX = "sess:";
 export const DEFAULT_TTL = 86400; // one day in seconds
 
 export class RedisStore<T extends SessionData = SessionData> extends EventEmitter implements SessionStore {
@@ -35,7 +35,7 @@ export class RedisStore<T extends SessionData = SessionData> extends EventEmitte
     const key = this.getKey(sessionId);
     await this.redis
       .pipeline()
-      .hset(key, 'data', JSON.stringify(sessionData), 'expiry', `${expiry || ''}`)
+      .hset(key, "data", JSON.stringify(sessionData), "expiry", `${expiry || ""}`)
       .expire(key, ttl)
       .exec();
     return;
@@ -43,7 +43,9 @@ export class RedisStore<T extends SessionData = SessionData> extends EventEmitte
 
   // This required method is used to get a session from the store given a session ID (sid).
   async get(sessionId: string): Promise<[SessionData, number | null] | null> {
-    const value = (await this.redis.hgetall(this.getKey(sessionId))) as unknown as StoredData | Record<string, never>;
+    const value = (await this.redis.hgetall(this.getKey(sessionId))) as unknown as
+      | StoredData
+      | Record<string, never>;
     const isEmpty = Object.keys(value).length === 0;
     return !isEmpty ? [JSON.parse(value.data), value.expiry ? Number(value.expiry) : null] : null;
   }
@@ -60,7 +62,7 @@ export class RedisStore<T extends SessionData = SessionData> extends EventEmitte
     const key = this.getKey(sessionId);
     await this.redis
       .pipeline()
-      .hset(key, 'expiry', `${expiry || ''}`)
+      .hset(key, "expiry", `${expiry || ""}`)
       .expire(key, ttl)
       .exec();
     return;

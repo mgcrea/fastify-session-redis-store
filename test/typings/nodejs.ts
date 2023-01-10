@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-namespace */
-import { warn } from 'console';
+import type { warn } from "console";
 
 declare global {
   const d: typeof warn;
